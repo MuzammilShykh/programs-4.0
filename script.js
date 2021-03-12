@@ -316,7 +316,7 @@ function program7() {
 
             for (let i = 0; i < inputstr.length; i++) {
                 if (inputstr.charAt(i) == inputChar) {
-                    indexCal += i + " "
+                    indexCal += i + ","
 
                 }
 
@@ -476,6 +476,14 @@ function program11() {
         if (inputstr.search(inputChar) !== -1) {
             for (let i = 0; i < inputstr.length; i++) {
                 if (inputstr.charAt(i) == inputChar) {
+                    index += i + ""
+
+
+console.log(index);
+                    newArray = inputstr.split("")
+
+                    console.log(newArray);
+
 
 
 
@@ -487,6 +495,8 @@ function program11() {
 
 
             }
+
+            indexArray = index.split()
 
             //var index = inputstr.lastIndexOf(inputChar);
 
@@ -506,8 +516,6 @@ function program11() {
         pTag11.innerHTML = `Invalid Input`
     }
 }
-
-
 
 
 
@@ -972,10 +980,10 @@ function program24() {
     
     
     var strInput = document.getElementById("program24").value;
-    for (let i = 0; i < strInput.length; i++) {
-        if (strInput.charAt(i) == ) {
+    for (let i = 0; i < alphabets.length; i++) {
+        // if (strInput.charAt(i) ==   ) {
 
-        } 
+        // } 
         
         
 
