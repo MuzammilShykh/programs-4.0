@@ -497,6 +497,7 @@ console.log(index);
             }
 
             indexArray = index.split()
+            
 
             //var index = inputstr.lastIndexOf(inputChar);
 
@@ -995,9 +996,9 @@ function program24() {
 
 
 
-// loopss............................................
 
-// program 1 (25)
+
+// program 25
 
 var div25 = document.getElementById("divProgram25");
 var pTag25 = document.createElement("p");
@@ -1007,30 +1008,13 @@ pTag25.style.color = "green"
 
 
 function program25() {
-    numInput = document.getElementById("program25").value;
-    var num = ""
-    if ((/^[0-9]+$/g).test(numInput)) {
-
-        for (let i = 1; i <= numInput; i++) {
-
-            num += " " + i
-            //  console.log(i);
-            pTag25.innerHTML = ` Natural Numbers are : ${num}`
-        }
-
-
-    }
-
-
-    else {
-        //console.log("please enter a number"); 
-        pTag26.style.color = "red"
-        pTag25.innerHTML = `please enter a number`
-    }
+    var blankSpcStr = document.getElementById("program25").value;
+    var blankSpc = blankSpcStr.replace(/ /g, "")
+    pTag25.innerHTML = `Answer is : ${blankSpc}`
 }
 
 
-// program 2 (26)
+// program  26
 var div26 = document.getElementById("divProgram26");
 var pTag26 = document.createElement("p");
 div26.appendChild(pTag26)
@@ -1038,28 +1022,25 @@ pTag26.style.color = "green"
 
 
 function program26() {
-    numInput = document.getElementById("program26").value;
-    var num = ""
-    if ((/^[0-9]+$/g).test(numInput)) {
-
-        for (let i = numInput; i >= 1; i--) {
-            num += " " + i
-            // console.log(i);
-            pTag26.innerHTML = ` Natural Numbers are : ${num}`
-        }
+    var userLeading = document.getElementById("program26").value;
+    var leadingStr = userLeading.trimLeft()
+    if (userLeading == "") {
+        alert("Enter a string value")
     }
-
-
+    else if (leadingStr == userLeading) {
+        console.log(`${userLeading} does not contain any Leading spaces`);
+        pTag26.innerHTML = `${userLeading} does not contain any Leading spaces`;
+    }
     else {
-        pTag26.style.color = "red"
-        pTag26.innerHTML = `please enter a number`
+        console.log(`String before = "${userLeading}" string After = "${leadingStr}"`);
+        alert(`String before = "${userLeading}" String After = "${leadingStr}"`)
     }
 }
 
 
 
 
-// program 3 (27)
+// program 27
 
 var div27 = document.getElementById("divProgram27");
 var pTag27 = document.createElement("p");
@@ -1068,17 +1049,19 @@ pTag27.style.color = "green"
 
 
 function program27() {
-    //charInput = document.getElementById("program27").value;
-
-    for (let i = 'a'; i <= 'z'; i++) {
-
-
-
-
+    var userTrailing = document.getElementById("program27").value;
+    var trailingStr = userTrailing.trimRight()
+    if (userTrailing == "") {
+        alert("Enter a string value")
     }
-
-
-
+    else if (trailingStr == userTrailing) {
+        console.log(`${userTrailing} does not contain any Leading spaces`);
+        pTag27.innerHTML = `${userLeading} does not contain any Leading spaces`;
+    }
+    else {
+        console.log(`String before  = "${userTrailing}" String After = "${trailingStr}"`);
+        alert(`String Before = "${userTrailing}" String After = "${trailingStr}"`)
+    }
 
 }
 
@@ -1092,14 +1075,18 @@ pTag28.style.color = "green"
 
 
 function program28() {
-    var num = ""
-    for (let i = 1; i <= 100; i++) {
-        if (i % 2 == 0) {
-            // console.log(i);
-            num += i + " "
-            pTag28.innerHTML = `Odd Numbers Between 1 to 100 are : ${num}`
-        }
-
+    var userTL = document.getElementById("program28").value;
+    var trimStr = userTL.trim()
+    if (userTL == "") {
+        alert("Enter a string value")
+    }
+    else if (trimStr == userTL) {
+        console.log(`${userTL} does not contain any Leading spaces`);
+        pTag28.innerHTML = `${userTL} does not contain any Leading spaces`;
+    }
+    else {
+        console.log(`String before  = "${userTL}" String After = "${trimStr}"`);
+        alert(`String before trim  = "${userTL}" Required string = "${trimStr}"`)
     }
 
 
@@ -1113,15 +1100,206 @@ pTag29.style.color = "green"
 
 
 function program29() {
-    var num = ""
-    for (let i = 1; i <= 100; i++) {
-        if (i % 2 !== 0) {
-            //console.log(i);
-            num += i + " "
-            pTag29.innerHTML = `Odd Numbers Between 1 to 100 are : ${num}`
-        }
+    var inputArray1 = [];
+    var mergeNum1 = document.getElementById("program29").value;
+    var inputArray2 = [];
+    var mergeNum2 = document.getElementById("program29a").value;
 
+    if (mergeNum1 < 0 || mergeNum2 < 0) {
+        alert("Invalid Input")
+    }
+    else {
+        for (var i = 0; i < mergeNum1; i++) {
+            inputArray1[i] = prompt(`Array 1 element` + (i + 1));
+        }
+        for (var i = 0; i < mergeNum2; i++) {
+            inputArray2[i] = prompt(`Array 2 element` + (i + 1));
+        }
+        console.log(inputArray1);
+        console.log(inputArray2);
+    }
+    mergeOutput = inputArray1.concat(inputArray2)
+    pTag29.innerHTML = `Array 1 = [${inputArray1}]<br> Array 2 = [${inputArray2}] <br> Merged Array = [${mergeOutput}]`
+    //console.log(`Array 1 = [${inputArray1}] Array 2 = [${inputArray2}] Merged Array = [${mergeOutput}]`);
+
+
+}
+// program 30
+var div30 = document.getElementById("divProgram30");
+var pTag30 = document.createElement("p");
+div30.appendChild(pTag30)
+pTag30.style.color = "green"
+
+function program30() {
+    var inputArray = [];
+    var dupNum = document.getElementById("program30").value;
+    if (dupNum < 0) {
+        alert("Invalid Input")
+    }
+    else {
+        for (var i = 0; i < dupNum; i++) {
+            inputArray[i] = prompt(`Array element` + (i + 1));
+        }
+        //console.log(inputArray);
+    }
+    inputArray = [...new Set(inputArray)]
+    pTag30.innerHTML = `New Array is Here :- <br> [${inputArray}]`
+   // console.log(`Array after deleting duplicate elements :- [${inputArray}]`);
+}
+
+
+
+// program 31
+
+var div31 = document.getElementById("divProgram31");
+var pTag31 = document.createElement("p");
+div31.appendChild(pTag31)
+pTag31.style.color = "green"
+
+
+
+
+
+
+function program31() {
+    var inputArray = [];
+    var numDup = document.getElementById("program31").value;
+    if (numDup < 0) {
+        alert("Invalid Input")
+    }
+    else {
+        for (var i = 0; i < numDup; i++) {
+            inputArray[i] = prompt(`Array element` + (i + 1));
+        }
+        console.log(inputArray);
+    }
+    var outputArray = [...new Set(inputArray)].length
+    if (outputArray == inputArray.length) {
+        outputArray = 0
+    }
+    else {
+        outputArray = (outputArray - inputArray.length) * (-1)
     }
 
+    pTag31.innerHTML = `Number of duplicate elements In Array Are :- <br> ${outputArray}`
+    //console.log(`Number of duplicate elements in given array is :- ${outputArray}`);
+}
 
+
+
+
+
+// program 32
+
+var div32 = document.getElementById("divProgram32");
+var pTag32 = document.createElement("p");
+div32.appendChild(pTag32)
+pTag32.style.color = "green"
+
+function program32() {
+    var inputArray = [];
+    var numUnique = document.getElementById("program32").value;
+    if (numUnique < 0) {
+        alert("Invalid Input")
+    }
+    else {
+        for (var i = 0; i < numUnique; i++) {
+            inputArray[i] = prompt(`Array element` + (i + 1));
+        }
+        //console.log(inputArray);
+    }
+    uniqueArray = [...new Set(inputArray)]
+    pTag32.innerHTML = `Unique Elements of [${inputArray}] are :- <br> ${uniqueArray}`
+    //console.log(`Unique Elements of [${inputArray}] are ${uniqueArray}`);
+}
+
+
+// program 33
+
+var div33 = document.getElementById("divProgram33");
+var pTag33 = document.createElement("p");
+div33.appendChild(pTag33)
+pTag33.style.color = "green"
+
+function program33() {
+    var inputArray = [];
+    var outputArray = []
+    var reverseNum = document.getElementById("program33").value;
+    if (reverseNum < 0) {
+        alert("Invalid Input")
+    }
+    else {
+        for (var i = 0; i < reverseNum; i++) {
+            inputArray[i] = prompt(`Array element` + (i + 1));
+        }
+        //console.log(inputArray);
+    }
+    outputArray = inputArray.reverse()
+    //console.log(outputArray);
+    pTag33.innerHTML = `Reversed Array = ${outputArray}`
+}
+
+
+
+// program 34
+
+var div34 = document.getElementById("divProgram34");
+var pTag34 = document.createElement("p");
+div34.appendChild(pTag34)
+pTag34.style.color = "green"
+
+function program34() {
+    var CP = parseFloat(document.getElementById("program34").value)
+    var SP = parseFloat(document.getElementById("program34a").value)
+    if (CP > SP) {
+        var loss = CP - SP
+        pTag34.innerHTML = `Cost Price : ${CP}<br> Sell Price : ${SP}<br>Loss : ${loss}`
+    }
+    else if (CP < SP) {
+        var profit = SP - CP
+        pTag34.innerHTML = `Cost Price : ${CP}<br>Sell Price : ${SP}<br>Profit: ${profit}`
+    }
+    else if (CP == SP) {
+        pTag34.innerHTML= `Cost Price :${CP}<br>Sell Price : ${SP}<br>Neither Profit Nor Loss`
+    }
+    else {
+        alert("Enter Valid Prices")
+    }
+}
+
+
+
+// program 35
+
+var div35 = document.getElementById("divProgram35");
+var pTag35 = document.createElement("p");
+div35.appendChild(pTag35)
+pTag35.style.color = "green"
+
+function program35() {
+    var root1, root2;
+    var a = parseFloat(document.getElementById("program35").value)
+    var b = parseFloat(document.getElementById("program35a").value)
+    var c = parseFloat(document.getElementById("program35b").value)
+    let discriminant = b * b - 4 * a * c;
+    if (discriminant > 0) {
+        root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+        root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+        pTag35.innerHTML = `The roots of quadratic equation are ${root1} and ${root2}`
+        //console.log(`The roots of quadratic equation are ${root1} and ${root2}`);
+    }
+    else if (discriminant == 0) {
+        root1 = root2 = -b / (2 * a);
+        pTag35.innerHTML = `The roots of quadratic equation are ${root1} and ${root2}`
+       // console.log(`The roots of quadratic equation are ${root1} and ${root2}`);
+    }
+    else if (discriminant < 0) {
+        let realPart = (-b / (2 * a)).toFixed(2);
+        let imagPart = (Math.sqrt(-discriminant) / (2 * a)).toFixed(2);
+        pTag35.innerHTML = `The roots of quadratic equation are ${realPart} + ${imagPart}i and ${realPart} - ${imagPart}i`
+        //console.log(`The roots of quadratic equation are ${realPart} + ${imagPart}i and ${realPart} - ${imagPart}i`);
+    }
+    else {
+        alert("Invalid Input")
+    }
 }
